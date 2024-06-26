@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.2f; //Ground checkers radius
 
     public Animator animator;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -37,15 +37,15 @@ public class PlayerMovement : MonoBehaviour
          float horizontalInput = Input.GetAxisRaw("Horizontal"); //Horizontal movement to player
          player.velocity = new Vector2(horizontalInput * playerSpeed, player.velocity.y);
 
-         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         // Check if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); //Components to check if the player is on the ground.
 
-        if (isGrounded && Input.GetButtonDown("Jump"))         // If the player is on the floor and presses the jump button
+        if (isGrounded && Input.GetButtonDown("Jump"))      // If the player is on the floor and presses the jump button
         {
             Debug.Log("Player is jumping");
-            animator.SetBool("isJumping", true); //Set jumping to true in the animation state
+            animator.SetBool("isJumping", true); //Set isJumping to true in the animation state
             animator.SetBool("isFalling", false); // Ensure isFalling is false when jumping
 
             player.velocity = new Vector2(player.velocity.x, jumpForce); // add the jump force to the Rigid body's y axis.
