@@ -304,6 +304,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 1692518375}
   groundCheckRadius: 0.2
+  animator: {fileID: 187984075}
 --- !u!95 &187984075
 Animator:
   serializedVersion: 5
